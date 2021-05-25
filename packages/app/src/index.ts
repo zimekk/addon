@@ -1,5 +1,14 @@
 import express, { Router } from "express";
 import path from "path";
+import hello from "@dev/lib";
+
+// http://localhost:8080/api/hello?text=World&delay=1000 => {"text":"Hello World"}
+const api = Router().all("/api/hello.json", (req, res) =>
+  (({ delay = 500, name = "" }) =>
+    new Promise((resolve) => setTimeout(resolve, Number(delay))).then(() =>
+      res.send({ greeting: hello(String(name)) })
+    ))(req.query)
+);
 
 const web =
   process.env.NODE_ENV === "development"
@@ -34,6 +43,7 @@ const PORT = 8080;
 
 export default express()
   .use(require("morgan")("combined"))
+  .use(api)
   .use(web)
   .listen(PORT, (...args) =>
     console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`)

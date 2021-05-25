@@ -1,4 +1,4 @@
 *.log
-lib
 node_modules
-public
+packages/*/lib
+packages/*/public

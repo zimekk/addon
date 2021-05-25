@@ -1,0 +1,24 @@
+{
+  "name": "@dev/lib",
+  "version": "1.0.0",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "main": "lib",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "serve": "node lib",
+    "start": "nodemon lib.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^15.3.1",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4"
+  }
+}
