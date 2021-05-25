@@ -14,10 +14,17 @@ namespace demo
   void Method(const FunctionCallbackInfo<Value> &args)
   {
     Isolate *isolate = args.GetIsolate();
-    args.GetReturnValue().Set(String::NewFromUtf8(
-                                  isolate, "world",
-                                  v8::NewStringType::kInternalized)
-                                  .ToLocalChecked());
+
+    v8::Local<v8::String> name;
+    name = args[0].As<v8::String>();
+
+    args.GetReturnValue().Set(
+        String::Concat(isolate,
+                       String::NewFromUtf8(
+                           isolate, "Hello ",
+                           v8::NewStringType::kInternalized)
+                           .ToLocalChecked(),
+                       name));
   }
 
   void Initialize(Local<Object> exports)
