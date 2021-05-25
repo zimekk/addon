@@ -1,0 +1,1 @@
+(self.webpackChunk_dev_web=self.webpackChunk_dev_web||[]).push([[225],{225:(e,t,l)=>{"use strict";l.r(t),l.d(t,{default:()=>n});var a=l(784);function n(){const[e,t]=(0,a.useState)("World"),l=(0,a.useCallback)((e=>t(e.target.value)));return a.createElement("div",null,a.createElement("input",{value:e,onChange:l}),a.createElement("div",null,e))}}}]);
