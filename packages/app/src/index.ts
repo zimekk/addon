@@ -2,7 +2,7 @@ import express, { Router } from "express";
 import path from "path";
 import hello from "@dev/lib";
 
-// http://localhost:8080/api/hello?text=World&delay=1000 => {"text":"Hello World"}
+// http://localhost:8080/api/hello?name=World&delay=1000 => {"text":"Hello World"}
 const api = Router().all("/api/hello.json", (req, res) =>
   (({ delay = 500, name = "" }) =>
     new Promise((resolve) => setTimeout(resolve, Number(delay))).then(() =>
