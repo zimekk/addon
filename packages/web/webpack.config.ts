@@ -54,8 +54,10 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "public"),
   },
+  // @ts-ignore: Excessive stack depth comparing types 'HtmlWebpackPlugin' and 'CopyPlugin'.
   plugins: [
     new webpack.EnvironmentPlugin(["NODE_ENV"]),
+    // @ts-ignore: Type 'HtmlWebpackPlugin' is not assignable to type '((this: Compiler, compiler: Compiler) => void) | WebpackPluginInstance'.
     new HtmlWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [
